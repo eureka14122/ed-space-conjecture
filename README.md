@@ -13,7 +13,7 @@ Bowron uses the operators `b` for closure, `i` for interior, and `f` for boundar
 bA = ifA.
 ```
 
-The proof is contained in [`ed_space_conjecture.tex`](ed_space_conjecture.tex), with a compiled copy in [`ed_space_conjecture.pdf`](ed_space_conjecture.pdf).
+The proof is contained in [`ed_space_conjecture.tex`](ed_space_conjecture.tex).
 
 ## Proof idea
 
