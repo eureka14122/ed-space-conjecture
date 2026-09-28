@@ -1,0 +1,114 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Int}{\operatorname{int}}
+\newcommand{\bd}{\partial}
+
+\title{A Short Proof of Bowron's ED-Space Conjecture}
+\author{Chengyang Li}
+\date{28 September 2026}
+
+\begin{document}
+
+\begin{abstract}
+Bowron conjectured that every ED space, in the sense of his classification of Kuratowski operator monoids, contains a nonempty subset whose closure is the interior of its boundary. We give a short proof.
+\end{abstract}
+
+\maketitle
+
+\section{The conjecture}
+
+We follow the operator notation of Bowron~\cite{Bowron2024}: for a subset $A$ of a topological space,
+$bA=\cl A$, $iA=\Int A$, and $fA=\bd A$.
+Composition is written by juxtaposition, so for example $ibA=\Int(\cl A)$.
+
+In the Closing Remarks of~\cite{Bowron2024}, Bowron conjectured that every ED space contains a nonempty subset $A$ such that
+\[
+ bA=ifA.
+\]
+Here ``ED space'' is used in the sense of Bowron's classification. In particular, the corresponding global operator identities include
+\[
+ bib=ib,\qquad bib\ne bi.
+\]
+
+\begin{theorem}
+Every ED space in the sense of~\cite{Bowron2024} contains a nonempty subset $A$ such that
+\[
+ bA=ifA.
+\]
+\end{theorem}
+
+\begin{proof}
+Since $bi\le bib=ib$ as operators and $bib\ne bi$, there is a subset $B$ such that
+\[
+ biB\subsetneq ibB.
+\]
+By Lemma 8(i) of~\cite{Bowron2024},
+\[
+ ifB=ibB\setminus biB.
+\]
+Hence
+\[
+ U:=ifB
+\]
+is nonempty.
+
+The set $U$ is open by definition. Since $fB$ is closed, applying the identity $bib=ib$ to $fB$ gives
+\[
+ b(ifB)=ifB,
+\]
+so $U$ is closed as well. Thus $U$ is clopen.
+
+Let
+\[
+ A:=B\cap U.
+\]
+Since $A\subseteq U$ and $U$ is closed, $bA\subseteq U$.
+Conversely, let $x\in U$ and let $V$ be an open neighbourhood of $x$. Then $V\cap U$ is an open neighbourhood of $x$. Moreover,
+\[
+ U\subseteq fB\subseteq bB,
+\]
+so $(V\cap U)\cap B\ne\varnothing$. Hence $V\cap A\ne\varnothing$.
+Thus every neighbourhood of $x$ meets $A$, and therefore $x\in bA$. We conclude that
+\[
+ bA=U.
+\]
+
+We next claim that $iA=\varnothing$. Otherwise some nonempty open set $O$ would satisfy $O\subseteq A$. Since $O\subseteq B$, this would imply $O\subseteq iB$; but also $O\subseteq U\subseteq fB$, contradicting
+\[
+ iB\cap fB=\varnothing.
+\]
+Therefore $iA=\varnothing$, and hence
+\[
+ fA=bA\setminus iA=U.
+\]
+Finally, $U$ is open, so
+\[
+ ifA=iU=U=bA.
+\]
+Since $U\ne\varnothing$ and $bA=U$, the set $A$ is nonempty.
+\end{proof}
+
+\section*{AI assistance}
+The initial argument was obtained with assistance from OpenAI's GPT. The author subsequently checked and reformulated the proof and takes responsibility for the mathematical content of this note.
+
+\section*{Acknowledgement}
+The author thanks Mark Bowron for helpful correspondence.
+
+\begin{thebibliography}{1}
+
+\bibitem{Bowron2024}
+M. Bowron,
+\emph{Boundary-border extensions of the Kuratowski monoid},
+Topology Appl. \textbf{341} (2024), 108703.
+\href{https://doi.org/10.1016/j.topol.2023.108703}{doi:10.1016/j.topol.2023.108703}.
+Preprint: \href{https://arxiv.org/abs/2210.10928}{arXiv:2210.10928}.
+
+\end{thebibliography}
+
+\end{document}
